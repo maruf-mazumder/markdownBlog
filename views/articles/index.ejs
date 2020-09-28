@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body style="background-color: darkgray;">
+    <div class="container" >
+        <h1 class="mb-4">Blog articles</h1>
+         <a href="/articles/new" class="btn btn-success">New Articles</a>
+           <% articles.forEach(x=>{ %>
+         <div class="card mt-4">
+                <div class="card-body">
+                    <h3 class="card-title mt-4">
+                        <%= x.title %>
+                      </h3>
+                      <div class="card-subtitle text-muted mb-2" >
+                          <%= x.date.toLocaleDateString() %>
+                      </div>
+      
+                      <div class="card-text mb-2" >
+                          <%= x.description %>
+                      </div>
+                      <!-- <a href="articles/<%=x.id%>" class="btn btn-primary">Read more</a> -->
+                      <!-- /*article er 'id' er bodole 'slug' property k url e pathabo. Db theke similar 'slug' bishishto object retrieve kore sheta show page e dekhte chai*/  -->
+                      <a href="articles/<%=x.slug%>" class="btn btn-primary">Read more</a>
+                      <a href="/articles/edit/<%=x.id%>" class="btn btn-info" >Edit</a>  
+
+                     
+                        <!-- We didnt use anchor tag here.Bcoz,Google crawler will delete everything while it crawls link everytime -->
+                      <form action="/articles/<%=x.id%>?_method=Delete" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                      </form> 
+
+                </div>
+         </div>
+          <% }) %>
+    </div>
+</body>
+</html>

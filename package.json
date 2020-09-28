@@ -1,0 +1,30 @@
+{
+  "name": "ejs-intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
+  },
+  "engines": {
+    "node":"12.18.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dompurify": "^2.1.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.3.0",
+    "express-partials": "^0.3.0",
+    "jsdom": "^16.4.0",
+    "marked": "^1.1.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.10.6",
+    "slugify": "^1.4.5"
+  }
+}
